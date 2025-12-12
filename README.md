@@ -54,32 +54,49 @@ This project implements a deep learning-based solution for automated Java method
 ```
 method_naming_project/
 ├── data/
-│   └── methods/
-│       ├── train_dataset.jsonl     # 35,880 training methods
-│       ├── test_dataset.jsonl      # 8,971 test methods
-│       └── metadata.json           # Dataset metadata
+│ │ # (100+ commits, 10+ contributors, Java, non-forks)
+│ └── methods/
+│ ├── train_dataset.jsonl # 35,880 training methods (raw)
+│ ├── test_dataset.jsonl # 8,971 test methods (raw)
+│ └── metadata.json # Dataset metadata
+├── datasets/ # github repo datasets and FIM processed datasets
+│ ├── github_repos.csv # Original repository list with filtering criteria
+│ ├── train_fim.jsonl # FIM format training data (98.8% success rate)
+│ ├── test_fim.jsonl # FIM format test data (98.8% success rate)
+│ ├── train_fim_improve.jsonl # Improved FIM training data (100% success rate)
+│ └── test_fim_improve.jsonl # Improved FIM test data (100% success rate)
 ├── models/
-│   ├── method_naming_model_lora/       # First training session
-│   └── method_naming_model_lora_final/ # Second training session (improved FIM)
-│       ├── adapter_config.json         # LoRA configuration
-│       ├── adapter_model.safetensors   # Model weights
-│       ├── special_tokens_map.json     # FIM tokens
-│       └── tokenizer_config.json       # Tokenizer configuration
-├── scripts/                         # Implementation scripts
-│   ├── github_miner.py             # Step 1: Data mining
-│   ├── fim_preprocessor.py         # Step 2: FIM preprocessing (98.8% success)
-│   ├── fim_preprocessor_improve.py # Step 2: Improved FIM preprocessing (100% success)
-│   ├── inference_fixed.py          # Step 3: Complete model evaluation
-│   ├── real_evaluation.py          # Step 3: Checkpoint evaluation framework
-├── output/                          # Results and reports
-│   ├── evaluation_final.json       # Step 3 evaluation results (100 samples)
-│   ├── step3_evaluation_final/     # Step 3 evaluation framework results
-│   └── training_metrics_final.json # Final training statistics
-├── Java_Method_Naming_Assignment.ipynb  # Complete Java Method filtering notebook
-├── fine_tuning_pretrained_model.ipynb  # Complete training and evaluation notebook
-├── requirements.txt                 # Python dependencies
-├── README.md                        # This file
-└── SUBMISSION_CHECKLIST.txt        # Detailed requirements checklist
+│ ├── method_naming_model_lora/ # First training session
+│ │ ├── checkpoint-xxxx/ # Training checkpoints
+│ │ ├── adapter_config.json # LoRA configuration
+│ │ ├── adapter_model.safetensors # Model weights
+│ │ ├── special_tokens_map.json # FIM tokens
+│ │ ├── tokenizer_config.json # Tokenizer configuration
+│ │ └── training_metrics.json # Training statistics
+│ └── method_naming_model_lora_final/ # Second training session (improved FIM)
+│ ├── checkpoint-xxxx/ # Training checkpoints
+│ ├── adapter_config.json # LoRA configuration
+│ ├── adapter_model.safetensors # Model weights
+│ ├── special_tokens_map.json # FIM tokens
+│ ├── tokenizer_config.json # Tokenizer configuration
+│ └── training_metrics_final.json # Final training statistics
+├── scripts/ # Implementation scripts
+│ ├── github_miner.py # Step 1: Data mining from GitHub
+│ ├── fim_preprocessor.py # Step 2: FIM preprocessing (98.8% success)
+│ ├── fim_preprocessor_improve.py # Step 2: Improved FIM preprocessing (100% success)
+│ ├── inference_fixed.py # Step 3: Complete model evaluation
+│ └── real_evaluation.py # Step 3: Checkpoint evaluation framework
+├── output/ # Results and reports
+│ ├── evaluation_final.json # Step 3 evaluation results (100 samples)
+│ ├── evaluation_summary.txt # Evaluation summary report
+│ ├── step3_evaluation_final/ # Step 3 evaluation framework results
+│ └── training_metrics_final.json # Final training statistics
+├── notebooks/ # Jupyter notebooks
+│ ├── Java_Method_Naming_Assignment.ipynb # Complete Java Method filtering notebook
+│ └── fine_tuning_pretrained_model.ipynb # Complete training and evaluation notebook
+├── requirements.txt # Python dependencies
+├── README.md # This file
+└── SUBMISSION_CHECKLIST.txt # Detailed requirements checklist
 ```
 
 ## 🚀 Quick Start
