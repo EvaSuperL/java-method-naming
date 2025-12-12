@@ -1,0 +1,20 @@
+{
+  "statistics": {
+    "total_repos_in_csv": 14786,
+    "repos_after_filtering": 14786,
+    "repos_processed": 45,
+    "total_methods_extracted": 50246,
+    "methods_after_deduplication": 47832,
+    "methods_after_length_filter": 44851,
+    "train_methods": 35880,
+    "test_methods": 8971,
+    "target_reached": true
+  },
+  "target_methods": 50000,
+  "train_size": 35880,
+  "test_size": 8971,
+  "start_time": "2025-12-03T07:08:11.115510",
+  "end_time": "2025-12-03T07:21:13.563179",
+  "duration": "0:13:02.447680",
+  "note": "Assignment 1 Step 1: Data collection for Java method naming"
+}
